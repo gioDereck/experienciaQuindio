@@ -16,6 +16,7 @@ import 'package:travel_hour/pages/saved_itinerary/saved_itineraries_screen.dart'
 import 'package:travel_hour/pages/coffee_routes_list.dart';
 import 'package:travel_hour/services/drag_scroll.dart';
 import 'package:travel_hour/services/navigation_service.dart';
+import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/header.dart';
 import 'package:travel_hour/widgets/transparent_modal.dart';
 import 'package:get/get.dart' as getx;
@@ -107,12 +108,13 @@ class _IaOptionsPageState extends State<IaOptionsPage>
         imageUrl:
             "${Config().media_url}/uploads/2024/09/app/ia_options/bn_5.png",
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const GamesMenuScreen(),
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => const GamesMenuScreen(),
+          //   ),
+          // );
+          nextScreenGoNamed(context, 'games');
         },
       ),
       MenuOptionData(
@@ -122,7 +124,10 @@ class _IaOptionsPageState extends State<IaOptionsPage>
         backgroundColor: Color(0xFFE74C3C),
         imageUrl:
             "${Config().media_url}/uploads/2024/09/app/coffee_routes/ruta_cafe.png",
-        onTap: CoffeeRoutesList(),
+        onTap: () {
+          // CoffeeRoutesList()
+          nextScreenGoNamed(context, 'coffee_routes');
+        },
       ),
       MenuOptionData(
         titleKey: 'interactive map',
@@ -132,12 +137,13 @@ class _IaOptionsPageState extends State<IaOptionsPage>
         imageUrl:
             "${Config().media_url}/uploads/2024/09/app/coffee_routes/ruta_cafe_2.png",
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const QuindioMap(),
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => const QuindioMap(),
+          //   ),
+          // );
+          nextScreenGoNamed(context, 'interactive_map');
         },
       ),
       MenuOptionData(
@@ -147,12 +153,13 @@ class _IaOptionsPageState extends State<IaOptionsPage>
         backgroundColor: Color.fromARGB(255, 60, 168, 231),
         imageUrl: "${Config().media_url}/uploads/2024/09/app/ar_qr/ar_qr.png",
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ImmersionQRPage(),
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => ImmersionQRPage(),
+          //   ),
+          // );
+          nextScreenGoNamed(context, 'ar_qr');
         },
       ),
     ];

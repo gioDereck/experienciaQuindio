@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:travel_hour/pages/emergency_numbers.dart';
+// import 'package:go_router/go_router.dart';
+import 'package:travel_hour/utils/next_screen.dart';
+// import 'package:travel_hour/pages/emergency_numbers.dart';
+// import 'package:travel_hour/routes.dart';
+// import 'package:travel_hour/utils/next_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactButtons extends StatelessWidget {
@@ -48,11 +52,12 @@ class ContactButtons extends StatelessWidget {
         FloatingActionButton(
           heroTag: "callButton_$uniqueId", // Etiqueta única
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        EmergencyNumbersPage())); // Navega a EmergencyNumbersPage
+            nextScreenGoNamed(context, "emergency_numbers");
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) =>
+            //             EmergencyNumbersPage())); // Navega a EmergencyNumbersPage
           },
           child: Icon(Icons.phone),
           backgroundColor: Color(0xFFF2565C), // Color hexadecimal personalizado

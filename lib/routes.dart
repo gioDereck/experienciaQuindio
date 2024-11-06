@@ -5,12 +5,19 @@ import 'package:travel_hour/models/place.dart';
 import 'package:travel_hour/pages/blogs.dart';
 import 'package:travel_hour/pages/bookmark.dart';
 import 'package:travel_hour/pages/coffee_routes_list.dart';
+import 'package:travel_hour/pages/emergency_numbers.dart';
 import 'package:travel_hour/pages/explore.dart';
+import 'package:travel_hour/pages/game_menu.dart';
 import 'package:travel_hour/pages/home.dart';
+import 'package:travel_hour/pages/ia_options.dart';
 import 'package:travel_hour/pages/intro.dart';
 import 'package:travel_hour/pages/more_places.dart';
+import 'package:travel_hour/pages/notifications.dart';
 import 'package:travel_hour/pages/place_details.dart';
 import 'package:travel_hour/pages/profile.dart';
+import 'package:travel_hour/pages/qr_code.dart';
+import 'package:travel_hour/pages/qr_list.dart';
+import 'package:travel_hour/pages/quindio_map.dart';
 import 'package:travel_hour/pages/sign_in.dart';
 import 'package:travel_hour/pages/splash.dart';
 import 'package:travel_hour/pages/states.dart';
@@ -75,6 +82,46 @@ GoRouter goRouter() {
             builder: (context, state) => ProfilePage(),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/emergency_numbers',
+        name: 'emergency_numbers',
+        builder: (context, state) => EmergencyNumbersPage(),
+      ),
+      GoRoute(
+        path: '/qr_scanner',
+        name: 'qr_scanner',
+        builder: (context, state) => QrCodePage(),
+      ),
+      GoRoute(
+        path: '/ia_options',
+        name: 'ia_options',
+        builder: (context, state) => IaOptionsPage(),
+      ),
+      GoRoute(
+        path: '/notifications',
+        name: 'notifications',
+        builder: (context, state) => NotificationsPage(),
+      ),
+      GoRoute(
+        path: '/ar_qr',
+        name: 'ar_qr',
+        builder: (context, state) => ImmersionQRPage(),
+      ),
+      GoRoute(
+        path: '/interactive_map',
+        name: 'interactive_map',
+        builder: (context, state) => QuindioMap(),
+      ),
+      GoRoute(
+        path: '/coffee_routes',
+        name: 'coffee_routes',
+        builder: (context, state) => CoffeeRoutesList(),
+      ),
+      GoRoute(
+        path: '/games',
+        name: 'games',
+        builder: (context, state) => GamesMenuScreen(),
       ),
       GoRoute(
         path: '/coffee-routes',

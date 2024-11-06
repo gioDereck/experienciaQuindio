@@ -149,7 +149,7 @@ class _IntroPageState extends State<IntroPage> {
                     ).tr(),
                     onPressed: () {
                       // nextScreenReplace(context, HomePage());
-                      nextScreenGoNamed(context, 'home');
+                      nextScreenGoNamed(context, 'explore');
                     },
                   ),
                 ),

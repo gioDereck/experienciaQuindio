@@ -9,7 +9,7 @@ import 'package:travel_hour/blocs/sign_in_bloc.dart';
 import 'package:travel_hour/config/config.dart';
 import 'package:travel_hour/controllers/font_size_controller.dart';
 import 'package:travel_hour/pages/edit_profile.dart';
-import 'package:travel_hour/pages/notifications.dart';
+// import 'package:travel_hour/pages/notifications.dart';
 import 'package:travel_hour/pages/privacy_policy_page.dart';
 import 'package:travel_hour/pages/security.dart';
 import 'package:travel_hour/pages/sign_in.dart';
@@ -39,18 +39,18 @@ class _ProfilePageState extends State<ProfilePage>
   openAboutDialog() {
     final sb = context.read<SignInBloc>();
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AboutDialog(
-          applicationName: Config().appName,
-          applicationIcon: Image(
-            image: AssetImage(Config().splashIcon),
-            height: 30,
-            width: 30,
-          ),
-          applicationVersion: sb.appVersion,
-        );
-      });
+        context: context,
+        builder: (BuildContext context) {
+          return AboutDialog(
+            applicationName: Config().appName,
+            applicationIcon: Image(
+              image: AssetImage(Config().splashIcon),
+              height: 30,
+              width: 30,
+            ),
+            applicationVersion: sb.appVersion,
+          );
+        });
   }
 
   // Chequea una unica vez las nuevas notificaciones
@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage>
     _loadData(); // Llamamos a un método que carga los datos.
   }
 
-   @override
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     lang = context.locale.languageCode;
@@ -81,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage>
 
   // Método asíncrono que carga los datos.
   Future<void> _loadData() async {
-    sp = await SharedPreferences.getInstance();    
+    sp = await SharedPreferences.getInstance();
     String? _uid = sp?.getString('uid');
     List<String> savedTimestamps = [];
 
@@ -112,7 +112,9 @@ class _ProfilePageState extends State<ProfilePage>
     setState(() => notificationsEnabled = newValue);
     await sp?.setBool('notificationsEnabled', newValue);
     if (mounted) {
-      context.read<NotificationBloc>().handleSubscription(context, newValue, sp);
+      context
+          .read<NotificationBloc>()
+          .handleSubscription(context, newValue, sp);
     }
   }
 
@@ -128,10 +130,12 @@ class _ProfilePageState extends State<ProfilePage>
   Widget build(BuildContext context) {
     super.build(context);
 
-    final FontSizeController fontSizeController = Get.find<FontSizeController>();
+    final FontSizeController fontSizeController =
+        Get.find<FontSizeController>();
     var baseStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
-      fontWeight: fontSizeController.obtainContrastFromBase(FontWeight.w600),
-    );
+          fontWeight:
+              fontSizeController.obtainContrastFromBase(FontWeight.w600),
+        );
     TextStyle _textStyle = baseStyle.copyWith(
       color: Colors.grey[900],
     );
@@ -151,7 +155,8 @@ class _ProfilePageState extends State<ProfilePage>
                 setState(() {
                   hasNewNotification = false;
                 });
-                nextScreen(context, NotificationsPage());
+                // nextScreen(context, NotificationsPage());
+                nextScreenGoNamed(context, 'notifications');
               },
             ),
           ],
@@ -174,16 +179,14 @@ class _ProfilePageState extends State<ProfilePage>
                 height: 30,
                 width: 30,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurpleAccent,
-                  borderRadius: BorderRadius.circular(5)
-                ),
+                    color: Colors.deepPurpleAccent,
+                    borderRadius: BorderRadius.circular(5)),
                 child: Icon(Feather.bell, size: 20, color: Colors.white),
               ),
               trailing: Switch.adaptive(
-                activeColor: Theme.of(context).primaryColor,
-                value: notificationsEnabled ?? false,
-                onChanged: _handleNotificationToggle
-              ),
+                  activeColor: Theme.of(context).primaryColor,
+                  value: notificationsEnabled ?? false,
+                  onChanged: _handleNotificationToggle),
             ),
             Divider(height: 5),
             ListTile(
@@ -381,14 +384,11 @@ class _ProfilePageState extends State<ProfilePage>
               ),
               onTap: () {
                 Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => WebView(
-                      url: Config().yourWebsiteUrl,
-                      label: easy.tr('rate this app')
-                    )
-                  )
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WebView(
+                            url: Config().yourWebsiteUrl,
+                            label: easy.tr('rate this app'))));
               },
             ),
             sb.guestUser == true
