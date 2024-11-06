@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:travel_hour/pages/explore.dart';
-import 'package:travel_hour/pages/blogs.dart';
-import 'package:travel_hour/pages/bookmark.dart';
-import 'package:travel_hour/pages/ia_options.dart';
-import 'package:travel_hour/pages/profile.dart';
-import 'package:travel_hour/pages/states.dart';
-import 'package:travel_hour/pages/more_places.dart';
-import 'package:travel_hour/services/navigation_service.dart';
+import 'package:go_router/go_router.dart';
+// import 'package:travel_hour/pages/explore.dart';
+// import 'package:travel_hour/pages/blogs.dart';
+// import 'package:travel_hour/pages/bookmark.dart';
+// import 'package:travel_hour/pages/ia_options.dart';
+// import 'package:travel_hour/pages/profile.dart';
+// import 'package:travel_hour/pages/states.dart';
+// import 'package:travel_hour/pages/more_places.dart';
+// import 'package:travel_hour/services/navigation_service.dart';
 import 'package:travel_hour/widgets/contact_buttons.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key ?? NavigationService().homeKey);
+  final Widget child;
+  // HomePage({Key? key}) : super(key: key ?? NavigationService().homeKey);
+  HomePage({Key? key, required this.child}) : super(key: key);
 
   @override
   HomePageStatePublic createState() => HomePageStatePublic();
@@ -20,21 +23,29 @@ class HomePage extends StatefulWidget {
 class HomePageStatePublic extends State<HomePage> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    Explore(),
-    StatesPage(),
-    BlogPage(),
-    BookmarkPage(),
-    ProfilePage(),
-    MorePlacesPage(
-      title: 'popular',
-      color: Colors.blueGrey[600],
-    ),
-    MorePlacesPage(
-      title: 'recently added',
-      color: Colors.blueGrey[600],
-    ),
-    IaOptionsPage()
+  // final List<Widget> _pages = [
+  //   Explore(),
+  //   StatesPage(),
+  //   BlogPage(),
+  //   BookmarkPage(),
+  //   ProfilePage(),
+  //   MorePlacesPage(
+  //     title: 'popular',
+  //     color: Colors.blueGrey[600],
+  //   ),
+  //   MorePlacesPage(
+  //     title: 'recently added',
+  //     color: Colors.blueGrey[600],
+  //   ),
+  //   IaOptionsPage()
+  // ];
+
+  final List<String> _routes = [
+    '/explore',
+    '/states',
+    '/blogs',
+    '/bookmarks',
+    '/profile',
   ];
 
   List<IconData> iconList = [
@@ -45,15 +56,22 @@ class HomePageStatePublic extends State<HomePage> {
     Feather.user,
   ];
 
+  // void onTabTapped(int index) {
+  //   if (_currentIndex != index) {
+  //     setState(() => _currentIndex = index);
+
+  //     Navigator.of(context).push(
+  //       MaterialPageRoute(
+  //         builder: (context) => _buildPageWithNav(index),
+  //       ),
+  //     );
+  //   }
+  // }
+
   void onTabTapped(int index) {
     if (_currentIndex != index) {
       setState(() => _currentIndex = index);
-
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => _buildPageWithNav(index),
-        ),
-      );
+      context.go(_routes[index]);
     }
   }
 
@@ -108,7 +126,8 @@ class HomePageStatePublic extends State<HomePage> {
           withoutAssistant: false,
           uniqueId: 'mainPage',
         ),
-        body: _pages[index],
+        // body: _pages[index],
+        body: widget.child,
       ),
     );
   }
