@@ -1,0 +1,23 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "conectaquindio-80908",
+          "appId": "1:74569608969:android:a43b8cec133eb06c126dd8",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "conectaquindio-80908",
+          "configurations": {
+            "android": "1:74569608969:android:a43b8cec133eb06c126dd8",
+            "ios": "1:74569608969:ios:8fa8091e3dda8a24126dd8",
+            "web": "1:74569608969:web:15677b7a6cd62ae8126dd8"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "74569608969",
+    "project_id": "conectaquindio-80908",
+    "storage_bucket": "conectaquindio-80908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74569608969:android:a43b8cec133eb06c126dd8",
+        "android_client_info": {
+          "package_name": "com.conectaquindio.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74569608969-clioob16pkigc6ohe38los7taopnp6fq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.conectaquindio.app",
+            "certificate_hash": "702b8537917d7ef409923b7418596d5682197b74"
+          }
+        },
+        {
+          "client_id": "74569608969-qphttm1c13qihk80lkk3ft0np89qav4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYXdVqxOm671zNtK9ntSnFWUlkbw4QcWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74569608969-qphttm1c13qihk80lkk3ft0np89qav4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

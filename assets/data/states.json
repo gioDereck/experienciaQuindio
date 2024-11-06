@@ -1,0 +1,162 @@
+[
+  {
+    "idState": 1,
+    "country_id": 36,
+    "name": "Amazonas"
+  },
+  {
+    "idState": 2,
+    "country_id": 36,
+    "name": "Antioquia"
+  },
+  {
+    "idState": 3,
+    "country_id": 36,
+    "name": "Arauca"
+  },
+  {
+    "idState": 4,
+    "country_id": 36,
+    "name": "Atlántico"
+  },
+  {
+    "idState": 5,
+    "country_id": 36,
+    "name": "Bolívar"
+  },
+  {
+    "idState": 6,
+    "country_id": 36,
+    "name": "Boyacá"
+  },
+  {
+    "idState": 7,
+    "country_id": 36,
+    "name": "Caldas"
+  },
+  {
+    "idState": 8,
+    "country_id": 36,
+    "name": "Caquetá"
+  },
+  {
+    "idState": 9,
+    "country_id": 36,
+    "name": "Casanare"
+  },
+  {
+    "idState": 10,
+    "country_id": 36,
+    "name": "Cauca"
+  },
+  {
+    "idState": 11,
+    "country_id": 36,
+    "name": "Cesar"
+  },
+  {
+    "idState": 12,
+    "country_id": 36,
+    "name": "Chocó"
+  },
+  {
+    "idState": 13,
+    "country_id": 36,
+    "name": "Córdoba"
+  },
+  {
+    "idState": 14,
+    "country_id": 36,
+    "name": "Cundinamarca"
+  },
+  {
+    "idState": 15,
+    "country_id": 36,
+    "name": "Güainia"
+  },
+  {
+    "idState": 16,
+    "country_id": 36,
+    "name": "Guaviare"
+  },
+  {
+    "idState": 17,
+    "country_id": 36,
+    "name": "Huila"
+  },
+  {
+    "idState": 18,
+    "country_id": 36,
+    "name": "La Guajira"
+  },
+  {
+    "idState": 19,
+    "country_id": 36,
+    "name": "Magdalena"
+  },
+  {
+    "idState": 20,
+    "country_id": 36,
+    "name": "Meta"
+  },
+  {
+    "idState": 21,
+    "country_id": 36,
+    "name": "Nariño"
+  },
+  {
+    "idState": 22,
+    "country_id": 36,
+    "name": "Norte de Santander"
+  },
+  {
+    "idState": 23,
+    "country_id": 36,
+    "name": "Putumayo"
+  },
+  {
+    "idState": 24,
+    "country_id": 36,
+    "name": "Quindio"
+  },
+  {
+    "idState": 25,
+    "country_id": 36,
+    "name": "Risaralda"
+  },
+  {
+    "idState": 26,
+    "country_id": 36,
+    "name": "San Andrés y Providencia"
+  },
+  {
+    "idState": 27,
+    "country_id": 36,
+    "name": "Santander"
+  },
+  {
+    "idState": 28,
+    "country_id": 36,
+    "name": "Sucre"
+  },
+  {
+    "idState": 29,
+    "country_id": 36,
+    "name": "Tolima"
+  },
+  {
+    "idState": 30,
+    "country_id": 36,
+    "name": "Valle del Cauca"
+  },
+  {
+    "idState": 31,
+    "country_id": 36,
+    "name": "Vaupés"
+  },
+  {
+    "idState": 32,
+    "country_id": 36,
+    "name": "Vichada"
+  }
+]

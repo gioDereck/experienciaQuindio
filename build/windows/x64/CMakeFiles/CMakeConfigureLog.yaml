@@ -1,0 +1,95 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Windows - 10.0.22000 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Versi├│n de MSBuild 17.11.2+c078802d4 para .NET Framework
+      Compilaci├│n iniciada a las 11/1/2024 2:27:33 PM.
+      
+      Proyecto "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      PrepareForBuild:
+        Creando directorio "Debug\\".
+        Creando directorio "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Se crear├í "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+        Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". El sistema no puede encontrar el archivo especificado. [C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Compilaci├│n del proyecto terminada "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados) -- ERROR.
+      
+      ERROR al compilar.
+      
+      "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destino predeterminado) (1) ->
+      (ClCompile destino) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". El sistema no puede encontrar el archivo especificado. [C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Advertencia(s)
+          1 Errores
+      
+      Tiempo transcurrido 00:00:02.51
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Versi├│n de MSBuild 17.11.2+c078802d4 para .NET Framework
+      Compilaci├│n iniciada a las 11/1/2024 2:27:37 PM.
+      
+      Proyecto "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      PrepareForBuild:
+        Creando directorio "Debug\\".
+        Creando directorio "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Se crear├í "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+        Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". El sistema no puede encontrar el archivo especificado. [C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Compilaci├│n del proyecto terminada "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados) -- ERROR.
+      
+      ERROR al compilar.
+      
+      "C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destino predeterminado) (1) ->
+      (ClCompile destino) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". El sistema no puede encontrar el archivo especificado. [C:\\laragon\\www\\conecta-quindio\\conect-quindio-web-app\\app\\build\\windows\\x64\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Advertencia(s)
+          1 Errores
+      
+      Tiempo transcurrido 00:00:03.83
+      
+      
+...

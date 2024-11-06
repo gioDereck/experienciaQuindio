@@ -1,0 +1,84 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/app
+/build/audio_session
+/build/app_settings
+/build/cloud_firestore
+/build/firebase_analytics
+/build/firebase_auth
+/build/firebase_core
+/build/firebase_in_app_messaging
+/build/firebase_messaging
+/build/firebase_storage
+/build/flutter_assets
+/build/flutter_facebook_auth
+/build/flutter_inappwebview_android
+/build/flutter_plugin_android_lifecycle
+/build/flutter_secure_storage
+/build/flutter_tts
+/build/flutter_web_browser
+/build/fluttertoast
+/build/geolocator_android
+/build/google_maps_flutter_android
+/build/google_mobile_ads
+/build/google_sign_in_android
+/build/image_picker_android
+/build/just_audio
+/build/launch_review
+/build/mobile_scanner
+/build/package_info_plus
+/build/path_provider_android
+/build/permission_handler_android
+/build/share
+/build/shared_preferences_android
+/build/speech_to_text
+/build/sqflite
+/build/uni_links
+/build/url_launcher_android
+/build/video_player_android
+/build/wakelock
+/build/wakelock_plus
+/build/webview_flutter_android
+
+/build/cache.dill.track.dill
+/build/5a9bde46f22ac7541da1f129231b25dc
+
+# Web related
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
