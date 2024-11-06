@@ -44,12 +44,14 @@ class PlaceDetails extends StatefulWidget {
   final Place? data;
   final String? tag;
   final bool itComeFromHome;
+  final String? previousRoute;
 
   const PlaceDetails(
       {Key? key,
       required this.data,
       required this.tag,
-      this.itComeFromHome = false})
+      this.itComeFromHome = false,
+      this.previousRoute})
       : super(key: key);
 
   @override
@@ -301,7 +303,20 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                             context.read<SpecialStateTwoBloc>().onRefresh();
                           }
                           // Navigator.pop(context);
-                          nextScreenPop(context);
+                          if (widget.previousRoute != null) {
+                            if (widget.previousRoute == 'popular' ||
+                                widget.previousRoute == 'recommended') {
+                              nextScreenGoWithExtra(context, 'places', {
+                                'title': widget.previousRoute,
+                                'color': widget.previousRoute == 'recommended'
+                                    ? Colors.green[300]
+                                    : Colors.blueGrey[600],
+                                'previous_route': 'home'
+                              });
+                            } else {
+                              nextScreenGoNamed(context, widget.previousRoute!);
+                            }
+                          }
                         },
                       ),
                     ),

@@ -3,7 +3,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:travel_hour/blocs/popular_places_bloc.dart';
 import 'package:travel_hour/models/place.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_hour/pages/place_details.dart';
+// import 'package:travel_hour/pages/place_details.dart';
 import 'package:travel_hour/services/drag_scroll.dart';
 import 'package:travel_hour/services/navigation_service.dart';
 import 'package:travel_hour/utils/app_colors.dart';
@@ -105,7 +105,12 @@ class _PopularPlacesState extends State<PopularPlaces> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 onPressed: () {
-                  NavigationService().navigateToIndex(5);
+                  // NavigationService().navigateToIndex(5);
+                  nextScreenGoWithExtra(context, 'places', {
+                    'title': 'popular',
+                    'color': Colors.blueGrey[600],
+                    'previous_route': 'home'
+                  });
                 },
               )
             ],
@@ -233,92 +238,104 @@ class _ItemList extends StatelessWidget {
     TextStyle _textStyleTiny = Theme.of(context).textTheme.bodySmall!;
 
     return InkWell(
-      child: Container(
-        margin: EdgeInsets.only(left: 0, right: 10, top: 5, bottom: 5),
-        width: MediaQuery.of(context).size.width > 900
-            ? 350
-            : MediaQuery.of(context).size.width * 0.40,
-        decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Stack(
-          children: [
-            Hero(
-              tag: 'popular${d.timestamp}',
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: CustomCacheImage(imageUrl: d.imageUrl1),
-              ),
-            ),
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
+        child: Container(
+          margin: EdgeInsets.only(left: 0, right: 10, top: 5, bottom: 5),
+          width: MediaQuery.of(context).size.width > 900
+              ? 350
+              : MediaQuery.of(context).size.width * 0.40,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Stack(
+            children: [
+              Hero(
+                tag: 'popular${d.timestamp}',
+                child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.transparent, // Sin opacidad arriba
-                      Colors.transparent,
-                      Colors.black
-                          .withOpacity(0.9), // Opacidad en la parte inferior
-                    ],
-                  ),
+                  child: CustomCacheImage(imageUrl: d.imageUrl1),
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
-                child: Text(
-                  d.name!,
-                  maxLines: 2,
-                  style: _textStyleMedium.copyWith(
-                    fontWeight: fontSizeController
-                        .obtainContrastFromBase(FontWeight.w500),
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  right: 15,
-                ),
+              Positioned.fill(
                 child: Container(
-                  padding:
-                      EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey[600]!.withOpacity(0.5),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(LineIcons.heart, size: 16, color: Colors.white),
-                      SizedBox(width: 5),
-                      Text(
-                        d.loves.toString(),
-                        style: _textStyleTiny.copyWith(color: Colors.white),
-                      )
-                    ],
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent, // Sin opacidad arriba
+                        Colors.transparent,
+                        Colors.black
+                            .withOpacity(0.9), // Opacidad en la parte inferior
+                      ],
+                    ),
                   ),
                 ),
               ),
-            )
-          ],
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(bottom: 20, left: 10, right: 10),
+                  child: Text(
+                    d.name!,
+                    maxLines: 2,
+                    style: _textStyleMedium.copyWith(
+                      fontWeight: fontSizeController
+                          .obtainContrastFromBase(FontWeight.w500),
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 15,
+                    right: 15,
+                  ),
+                  child: Container(
+                    padding:
+                        EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey[600]!.withOpacity(0.5),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(LineIcons.heart, size: 16, color: Colors.white),
+                        SizedBox(width: 5),
+                        Text(
+                          d.loves.toString(),
+                          style: _textStyleTiny.copyWith(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-      onTap: () => nextScreen(
-        context,
-        PlaceDetails(
-            data: d, tag: 'popular${d.timestamp}', itComeFromHome: true),
-      ),
-    );
+        onTap: () => nextScreenGoWithExtra(
+              context,
+              'place-details',
+              {
+                'data': d,
+                'tag': 'featured${d.timestamp}',
+                'itComeFromHome': true,
+                'previous_route': 'home'
+              },
+            )
+
+        // nextScreen(
+        //   context,
+        //   PlaceDetails(
+        //       data: d, tag: 'popular${d.timestamp}', itComeFromHome: true),
+        // ),
+        );
   }
 }

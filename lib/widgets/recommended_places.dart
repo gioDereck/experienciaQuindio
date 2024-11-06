@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_hour/blocs/recommanded_places_bloc.dart';
-import 'package:travel_hour/pages/more_places.dart';
+// import 'package:travel_hour/pages/more_places.dart';
 import 'package:travel_hour/utils/next_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -40,14 +40,19 @@ class RecommendedPlaces extends StatelessWidget {
               ).tr(),
               Spacer(),
               IconButton(
-                icon: Icon(Icons.arrow_forward),
-                onPressed: () => nextScreen(
-                    context,
-                    MorePlacesPage(
-                      title: 'recommended',
-                      color: Colors.green[300],
-                    )),
-              )
+                  icon: Icon(Icons.arrow_forward),
+                  onPressed: () => nextScreenGoWithExtra(context, 'places', {
+                        'title': 'recommended',
+                        'color': Colors.green[300],
+                        'previous_route': 'home'
+                      })
+                  // nextScreen(
+                  //     context,
+                  //     MorePlacesPage(
+                  //       title: 'recommended',
+                  //       color: Colors.green[300],
+                  //     )),
+                  )
             ],
           ),
         ),

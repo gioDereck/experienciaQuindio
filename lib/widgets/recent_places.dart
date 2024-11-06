@@ -3,7 +3,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:travel_hour/blocs/recent_places_bloc.dart';
 import 'package:travel_hour/models/place.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_hour/pages/place_details.dart';
+// import 'package:travel_hour/pages/place_details.dart';
 import 'package:travel_hour/services/drag_scroll.dart';
 import 'package:travel_hour/utils/app_colors.dart';
 import 'package:travel_hour/utils/next_screen.dart';
@@ -105,7 +105,12 @@ class _RecentPlacesState extends State<RecentPlaces> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 onPressed: () {
-                  NavigationService().navigateToIndex(6);
+                  // NavigationService().navigateToIndex(6);
+                  nextScreenGoWithExtra(context, 'places', {
+                    'title': 'recently added',
+                    'color': Colors.blueGrey[600],
+                    'previous_route': 'home'
+                  });
                 },
               )
             ],
@@ -314,10 +319,20 @@ class _ItemList extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () => nextScreen(
-          context,
-          PlaceDetails(
-              data: d, tag: 'recent${d.timestamp}', itComeFromHome: true)),
+      onTap: () => nextScreenGoWithExtra(
+        context,
+        'place-details',
+        {
+          'data': d,
+          'tag': 'recent${d.timestamp}',
+          'itComeFromHome': true,
+          'previous_route': 'home'
+        },
+      ),
+      // nextScreen(
+      //     context,
+      //     PlaceDetails(
+      //         data: d, tag: 'recent${d.timestamp}', itComeFromHome: true)),
     );
   }
 }

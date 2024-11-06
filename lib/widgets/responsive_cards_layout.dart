@@ -226,8 +226,18 @@ class _ListItem extends StatelessWidget {
           ),
         ),
       ]),
-      onTap: () => nextScreen(
-          context, PlaceDetails(data: d, tag: 'recommended${d.timestamp}', itComeFromHome: false)),
+      onTap: () => nextScreenGoWithExtra(
+        context,
+        'place-details',
+        {
+          'data': d,
+          'tag': 'recomended${d.timestamp}',
+          'itComeFromHome': false,
+          'previous_route': 'home'
+        },
+      ),
+      // nextScreen(
+      //     context, PlaceDetails(data: d, tag: 'recommended${d.timestamp}', itComeFromHome: false)),
     );
   }
 }

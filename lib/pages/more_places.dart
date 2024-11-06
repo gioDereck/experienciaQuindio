@@ -5,8 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:travel_hour/models/place.dart';
-import 'package:travel_hour/pages/place_details.dart';
-import 'package:travel_hour/services/navigation_service.dart';
+// import 'package:travel_hour/pages/place_details.dart';
+// import 'package:travel_hour/services/navigation_service.dart';
 import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/custom_cache_image.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -17,7 +17,9 @@ import 'package:travel_hour/widgets/header.dart';
 class MorePlacesPage extends StatefulWidget {
   final String title;
   final Color? color;
-  MorePlacesPage({Key? key, required this.title, required this.color})
+  final String? previousRoute;
+  MorePlacesPage(
+      {Key? key, required this.title, required this.color, this.previousRoute})
       : super(key: key);
 
   @override
@@ -178,7 +180,8 @@ class _MorePlacesPageState extends State<MorePlacesPage> {
       actions: [
         IconButton(
           icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
-          onPressed: () => NavigationService().navigateToIndex(0),
+          onPressed: () => nextScreenGoNamed(context, widget.previousRoute!),
+          // NavigationService().navigateToIndex(0),
         )
       ],
       backgroundColor: widget.color,
@@ -219,9 +222,9 @@ class _MorePlacesPageState extends State<MorePlacesPage> {
               (context, index) {
                 if (index < _places.length) {
                   return _ListItem(
-                    d: _places[index],
-                    tag: '${widget.title}$index',
-                  );
+                      d: _places[index],
+                      tag: '${widget.title}$index',
+                      title: widget.title);
                 }
                 return null;
               },
@@ -254,7 +257,8 @@ class _MorePlacesPageState extends State<MorePlacesPage> {
 class _ListItem extends StatelessWidget {
   final Place d;
   final String tag;
-  const _ListItem({Key? key, required this.d, required this.tag})
+  final String? title;
+  const _ListItem({Key? key, required this.d, required this.tag, this.title})
       : super(key: key);
 
   @override
@@ -264,8 +268,18 @@ class _ListItem extends StatelessWidget {
     TextStyle _textStyleMedium = Theme.of(context).textTheme.bodyMedium!;
 
     return InkWell(
-      onTap: () => nextScreen(
-          context, PlaceDetails(data: d, tag: tag, itComeFromHome: false)),
+      onTap: () => nextScreenGoWithExtra(
+        context,
+        'place-details',
+        {
+          'data': d,
+          'tag': tag,
+          'itComeFromHome': false,
+          'previous_route': title
+        },
+      ),
+      // nextScreen(
+      //   context, PlaceDetails(data: d, tag: tag, itComeFromHome: false)),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

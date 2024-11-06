@@ -178,10 +178,20 @@ class FeaturedCard extends StatelessWidget {
           ],
         ),
         onTap: () {
-          nextScreen(
+          // nextScreen(
+          //   context,
+          //   PlaceDetails(
+          //       data: d, tag: 'featured${d.timestamp}', itComeFromHome: true),
+          // );
+          nextScreenGoWithExtra(
             context,
-            PlaceDetails(
-                data: d, tag: 'featured${d.timestamp}', itComeFromHome: true),
+            'place-details',
+            {
+              'data': d,
+              'tag': 'featured${d.timestamp}',
+              'itComeFromHome': true,
+              'previous_route': 'home'
+            },
           );
         },
       ),

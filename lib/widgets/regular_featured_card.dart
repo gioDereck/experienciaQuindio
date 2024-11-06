@@ -39,6 +39,7 @@ class RegularFeaturedCard extends StatelessWidget {
                 {
                   'data': d,
                   'tag': 'featured${d.timestamp}_$_heroTag',
+                  'previous_route': 'home'
                 },
               );
             },

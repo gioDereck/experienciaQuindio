@@ -6,7 +6,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:translator/translator.dart';
 import 'package:travel_hour/controllers/font_size_controller.dart';
 import 'package:travel_hour/models/place.dart';
-import 'package:travel_hour/pages/place_details.dart';
+// import 'package:travel_hour/pages/place_details.dart';
 import 'package:travel_hour/utils/empty.dart';
 import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/contact_buttons.dart';
@@ -299,10 +299,20 @@ class _GridItemState extends State<_GridItem> {
     final formattedDate = _formatDate(widget.d.date!, context);
 
     return InkWell(
-      onTap: () => nextScreen(
+      onTap: () => nextScreenGoWithExtra(
         context,
-        PlaceDetails(data: widget.d, tag: widget.tag, itComeFromHome: false),
+        'place-details',
+        {
+          'data': widget.d,
+          'tag': widget.tag,
+          'itComeFromHome': false,
+          'previous_route': 'home'
+        },
       ),
+      // nextScreen(
+      //   context,
+      //   PlaceDetails(data: widget.d, tag: widget.tag, itComeFromHome: false),
+      // ),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
