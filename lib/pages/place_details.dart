@@ -46,13 +46,15 @@ class PlaceDetails extends StatefulWidget {
   final String? tag;
   final bool itComeFromHome;
   final String? previousRoute;
+  final String? place;
 
   const PlaceDetails(
       {Key? key,
       required this.data,
       required this.tag,
       this.itComeFromHome = false,
-      this.previousRoute})
+      this.previousRoute,
+      this.place})
       : super(key: key);
 
   @override
@@ -76,6 +78,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   }
 
   Future<void> _getLocation() async {
+    print('name Place ${widget.place}');
     final hashdateService = HashDateservice();
 
     // Verifica si la fecha ya esta almacenada
@@ -310,13 +313,18 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                                 widget.previousRoute == 'recommended') {
                               print(widget.previousRoute);
 
-                              nextScreenGoWithExtra(context, 'places', {
-                                'title': widget.previousRoute,
-                                'color': widget.previousRoute == 'recommended'
-                                    ? Colors.green[300]
-                                    : Colors.blueGrey[600],
-                                'previous_route': 'home'
-                              });
+                              nextScreenGoNamedWithOptions(context, 'places',
+                                  pathParameters: {
+                                    'place': widget.previousRoute!
+                                  },
+                                  extra: {
+                                    'title': widget.previousRoute,
+                                    'color':
+                                        widget.previousRoute == 'recommended'
+                                            ? Colors.green[300]
+                                            : Colors.blueGrey[600],
+                                    'previous_route': 'explore'
+                                  });
                             } else {
                               nextScreenGoNamed(context, widget.previousRoute!);
                             }

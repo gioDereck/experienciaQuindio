@@ -12,9 +12,6 @@ class NavigationService {
   GlobalKey<HomePageStatePublic> get homeKey => _homeKey;
 
   void navigateToIndex(int index) {
-    print('Navigation $index');
-    print('homeKey ${_homeKey.currentState}');
-
     _homeKey.currentState?.onTabTapped(index);
   }
 }

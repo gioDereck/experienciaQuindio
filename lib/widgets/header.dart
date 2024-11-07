@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_hour/blocs/sign_in_bloc.dart';
-import 'package:travel_hour/pages/qr_code.dart';
+// import 'package:travel_hour/pages/qr_code.dart';
 import 'package:travel_hour/services/navigation_service.dart';
+import 'package:travel_hour/utils/next_screen.dart';
 
 class Header extends StatelessWidget {
   final bool withoutSearch;
@@ -53,10 +54,11 @@ class Header extends StatelessWidget {
                             size: 28, color: Theme.of(context).primaryColor),
                       ),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => QrCodePage()),
-                        );
+                        nextScreenGoNamed(context, 'qr_scanner');
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => QrCodePage()),
+                        // );
                       },
                     ),
                     SizedBox(width: 10),
@@ -87,7 +89,8 @@ class Header extends StatelessWidget {
                                         fit: BoxFit.cover)),
                               ),
                         onTap: () {
-                          NavigationService().navigateToIndex(4);
+                          // NavigationService().navigateToIndex(4);
+                          nextScreenGoNamed(context, 'profile');
                         }),
                   ],
                 ),

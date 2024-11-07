@@ -2,13 +2,28 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_hour/models/place.dart';
+import 'package:travel_hour/pages/blogs.dart';
+import 'package:travel_hour/pages/bookmark.dart';
 import 'package:travel_hour/pages/coffee_routes_list.dart';
+import 'package:travel_hour/pages/emergency_numbers.dart';
+import 'package:travel_hour/pages/explore.dart';
+import 'package:travel_hour/pages/game_menu.dart';
 import 'package:travel_hour/pages/home.dart';
+import 'package:travel_hour/pages/ia_options.dart';
 import 'package:travel_hour/pages/intro.dart';
 import 'package:travel_hour/pages/more_places.dart';
+import 'package:travel_hour/pages/notifications.dart';
 import 'package:travel_hour/pages/place_details.dart';
+import 'package:travel_hour/pages/privacy_policy_page.dart';
+import 'package:travel_hour/pages/profile.dart';
+import 'package:travel_hour/pages/qr_code.dart';
+import 'package:travel_hour/pages/qr_list.dart';
+import 'package:travel_hour/pages/quindio_map.dart';
 import 'package:travel_hour/pages/sign_in.dart';
 import 'package:travel_hour/pages/splash.dart';
+import 'package:travel_hour/pages/states.dart';
+import 'package:travel_hour/widgets/language.dart';
+import 'package:travel_hour/widgets/webView.dart';
 
 final FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
 final FirebaseAnalyticsObserver firebaseObserver =
@@ -39,14 +54,104 @@ GoRouter goRouter() {
           return IntroPage();
         },
       ),
-      GoRoute(
-        path: '/home',
-        name: 'home',
-        builder: (context, state) {
-          return HomePage();
-          // initialTab: state.extra as String?,
+      ShellRoute(
+        builder: (context, state, child) {
+          return HomePage(child: child);
         },
+        routes: [
+          GoRoute(
+            path: '/explore',
+            name: 'explore', // Agrega el nombre de la ruta
+            builder: (context, state) => Explore(),
+          ),
+          GoRoute(
+            path: '/states',
+            name: 'states', // Agrega el nombre de la ruta
+            builder: (context, state) => StatesPage(),
+          ),
+          GoRoute(
+            path: '/blogs',
+            name: 'blogs', // Agrega el nombre de la ruta
+            builder: (context, state) => BlogPage(),
+          ),
+          GoRoute(
+            path: '/bookmarks',
+            name: 'bookmarks', // Agrega el nombre de la ruta
+            builder: (context, state) => BookmarkPage(),
+          ),
+          GoRoute(
+            path: '/profile',
+            name: 'profile', // Agrega el nombre de la ruta
+            builder: (context, state) => ProfilePage(),
+          ),
+        ],
       ),
+      GoRoute(
+        path: '/emergency_numbers',
+        name: 'emergency_numbers',
+        builder: (context, state) => EmergencyNumbersPage(),
+      ),
+      GoRoute(
+        path: '/qr_scanner',
+        name: 'qr_scanner',
+        builder: (context, state) => QrCodePage(),
+      ),
+      GoRoute(
+        path: '/ia_options',
+        name: 'ia_options',
+        builder: (context, state) => IaOptionsPage(),
+      ),
+      GoRoute(
+        path: '/notifications',
+        name: 'notifications',
+        builder: (context, state) => NotificationsPage(),
+      ),
+      GoRoute(
+        path: '/ar_qr',
+        name: 'ar_qr',
+        builder: (context, state) => ImmersionQRPage(),
+      ),
+      GoRoute(
+        path: '/interactive_map',
+        name: 'interactive_map',
+        builder: (context, state) => QuindioMap(),
+      ),
+      GoRoute(
+        path: '/coffee_routes',
+        name: 'coffee_routes',
+        builder: (context, state) => CoffeeRoutesList(),
+      ),
+      GoRoute(
+        path: '/games',
+        name: 'games',
+        builder: (context, state) => GamesMenuScreen(),
+      ),
+      GoRoute(
+        path: '/languages',
+        name: 'languages',
+        builder: (context, state) => LanguagePopup(),
+      ),
+      GoRoute(
+          path: '/privacy_policy',
+          name: 'privacy_policy',
+          builder: (context, state) {
+            dynamic url = state.uri.queryParameters['url'];
+            return PrivacyPolicyPage(
+              url: url,
+            );
+          }),
+      GoRoute(
+          path: '/survey',
+          name: 'survey',
+          builder: (context, state) {
+            dynamic url = state.uri.queryParameters['url'];
+            dynamic label = state.uri.queryParameters['label'];
+            return WebView(
+              url: url,
+              label: label,
+            );
+          }),
+      //...
       GoRoute(
         path: '/coffee-routes',
         name: 'coffee-routes',
@@ -55,24 +160,26 @@ GoRouter goRouter() {
         },
       ),
       GoRoute(
-        path: '/place-details',
+        path: '/place-details/:place',
         name: 'place-details',
         builder: (context, state) {
           final args = state.extra as Map<String, dynamic>?;
+          dynamic place = state.pathParameters['place'];
 
           return PlaceDetails(
-            data: args?['data'] as Place?,
-            tag: args?['tag'] as String? ?? '',
-            itComeFromHome: args?['itComeFromHome'] ?? false,
-            previousRoute: args?['previous_route'],
-          );
+              data: args?['data'] as Place?,
+              tag: args?['tag'] as String? ?? '',
+              itComeFromHome: args?['itComeFromHome'] ?? false,
+              previousRoute: args?['previous_route'],
+              place: place != '' ? place : args?['data']['name']);
         },
       ),
       GoRoute(
-          path: '/places',
+          path: '/places/:place',
           name: 'places',
           builder: (context, state) {
             final args = state.extra as Map<String, dynamic>?;
+            dynamic place = state.pathParameters['place'];
 
             // En lugar de crear una nueva instancia de MorePlacesPage,
             // retornamos HomePage con el índice correspondiente
@@ -81,10 +188,10 @@ GoRouter goRouter() {
             // );
 
             return MorePlacesPage(
-              title: args?['title'] as String? ?? 'recommended',
-              color: args?['color'] ?? Colors.green[300],
-              previousRoute: args?['previous_route'] ?? 'home',
-            );
+                title: args?['title'] as String? ?? 'recommended',
+                color: args?['color'] ?? Colors.green[300],
+                previousRoute: args?['previous_route'] ?? 'explore',
+                place: place != '' ? place : args?['title']);
           })
     ],
     // Integrar Firebase Analytics con la navegación de la App

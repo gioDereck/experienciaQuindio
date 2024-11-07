@@ -41,10 +41,13 @@ class RecommendedPlaces extends StatelessWidget {
               Spacer(),
               IconButton(
                   icon: Icon(Icons.arrow_forward),
-                  onPressed: () => nextScreenGoWithExtra(context, 'places', {
+                  onPressed: () => nextScreenGoNamedWithOptions(
+                          context, 'places', pathParameters: {
+                        'place': 'recommended'
+                      }, extra: {
                         'title': 'recommended',
                         'color': Colors.green[300],
-                        'previous_route': 'home'
+                        'previous_route': 'explore'
                       })
                   // nextScreen(
                   //     context,

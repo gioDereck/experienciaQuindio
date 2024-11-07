@@ -183,14 +183,15 @@ class FeaturedCard extends StatelessWidget {
           //   PlaceDetails(
           //       data: d, tag: 'featured${d.timestamp}', itComeFromHome: true),
           // );
-          nextScreenGoWithExtra(
+          nextScreenGoNamedWithOptions(
             context,
             'place-details',
-            {
+            pathParameters: {'place': d.name!},
+            extra: {
               'data': d,
               'tag': 'featured${d.timestamp}',
               'itComeFromHome': true,
-              'previous_route': 'home'
+              'previous_route': 'explore'
             },
           );
         },

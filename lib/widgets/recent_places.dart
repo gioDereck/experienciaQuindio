@@ -314,14 +314,15 @@ class _ItemList extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () => nextScreenGoWithExtra(
+      onTap: () => nextScreenGoNamedWithOptions(
         context,
         'place-details',
-        {
+        pathParameters: {'place': d.name!},
+        extra: {
           'data': d,
           'tag': 'recent${d.timestamp}',
           'itComeFromHome': true,
-          'previous_route': 'home'
+          'previous_route': 'explore'
         },
       ),
       // nextScreen(

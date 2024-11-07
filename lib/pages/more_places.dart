@@ -18,8 +18,13 @@ class MorePlacesPage extends StatefulWidget {
   final String title;
   final Color? color;
   final String? previousRoute;
+  final String? place;
   MorePlacesPage(
-      {Key? key, required this.title, required this.color, this.previousRoute})
+      {Key? key,
+      required this.title,
+      required this.color,
+      this.previousRoute,
+      this.place})
       : super(key: key);
 
   @override
@@ -269,10 +274,11 @@ class _ListItem extends StatelessWidget {
     TextStyle _textStyleMedium = Theme.of(context).textTheme.bodyMedium!;
 
     return InkWell(
-      onTap: () => nextScreenGoWithExtra(
+      onTap: () => nextScreenGoNamedWithOptions(
         context,
         'place-details',
-        {
+        pathParameters: {'place': d.name!},
+        extra: {
           'data': d,
           'tag': tag,
           'itComeFromHome': false,

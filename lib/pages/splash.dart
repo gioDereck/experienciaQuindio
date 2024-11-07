@@ -31,7 +31,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       sb.getDataFromSp();
     }
     // nextScreenReplace(context, HomePage());
-    nextScreenGoNamed(context, "home");
+    nextScreenGoNamed(context, "explore");
   }
 
   gotoSignInPage() {

@@ -33,13 +33,14 @@ class RegularFeaturedCard extends StatelessWidget {
               //     context,
               //     PlaceDetails(
               //         data: d, tag: 'featured${d.timestamp}_$_heroTag'));
-              nextScreenGoWithExtra(
+              nextScreenGoNamedWithOptions(
                 context,
                 'place-details',
-                {
+                pathParameters: {'place': d.name!},
+                extra: {
                   'data': d,
                   'tag': 'featured${d.timestamp}_$_heroTag',
-                  'previous_route': 'home'
+                  'previous_route': 'explore'
                 },
               );
             },

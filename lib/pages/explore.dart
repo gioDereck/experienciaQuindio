@@ -8,7 +8,8 @@ import 'package:travel_hour/blocs/recommanded_places_bloc.dart';
 import 'package:travel_hour/blocs/sp_state_one.dart';
 import 'package:travel_hour/blocs/sp_state_two.dart';
 import 'package:travel_hour/config/config.dart';
-import 'package:travel_hour/services/navigation_service.dart';
+// import 'package:travel_hour/services/navigation_service.dart';
+import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/AvatarWithText.dart';
 import 'package:travel_hour/widgets/featured_places_v2.dart';
 import 'package:travel_hour/widgets/header.dart';
@@ -96,7 +97,8 @@ class _ExploreState extends State<Explore> with AutomaticKeepAliveClientMixin {
                                   iconPath: 'assets/images/icon_ia_v2.gif',
                                 ),
                                 onTap: () {
-                                  NavigationService().navigateToIndex(7);
+                                  // NavigationService().navigateToIndex(7);
+                                  nextScreenGoNamed(context, 'ia_options');
                                 },
                               ),
                               //SearchButton(),
