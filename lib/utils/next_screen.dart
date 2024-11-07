@@ -39,8 +39,8 @@ void nextScreenGoWithExtra(
 }
 
 // Navegar y reemplazar la ruta actual
-void nextScreenGo(BuildContext context, String path) {
-  context.go(path);
+void nextScreenGoReplace(BuildContext context, String routeName, Object extra) {
+  context.go(routeName, extra: extra);
 }
 
 // Navegar con animación de diálogo a pantalla completa

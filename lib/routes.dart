@@ -44,6 +44,7 @@ GoRouter goRouter() {
         name: 'home',
         builder: (context, state) {
           return HomePage();
+          // initialTab: state.extra as String?,
         },
       ),
       GoRoute(
@@ -72,6 +73,12 @@ GoRouter goRouter() {
           name: 'places',
           builder: (context, state) {
             final args = state.extra as Map<String, dynamic>?;
+
+            // En lugar de crear una nueva instancia de MorePlacesPage,
+            // retornamos HomePage con el índice correspondiente
+            // return HomePage(
+            //   initialTab: args?['title'] as String?,
+            // );
 
             return MorePlacesPage(
               title: args?['title'] as String? ?? 'recommended',

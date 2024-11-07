@@ -8,10 +8,13 @@ import 'package:travel_hour/pages/profile.dart';
 import 'package:travel_hour/pages/states.dart';
 import 'package:travel_hour/pages/more_places.dart';
 import 'package:travel_hour/services/navigation_service.dart';
+import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/contact_buttons.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key ?? NavigationService().homeKey);
+  final String? initialTab;
+  HomePage({Key? key, this.initialTab})
+      : super(key: key ?? NavigationService().homeKey);
 
   @override
   HomePageStatePublic createState() => HomePageStatePublic();
@@ -29,10 +32,12 @@ class HomePageStatePublic extends State<HomePage> {
     MorePlacesPage(
       title: 'popular',
       color: Colors.blueGrey[600],
+      previousRoute: 'home',
     ),
     MorePlacesPage(
       title: 'recently added',
       color: Colors.blueGrey[600],
+      previousRoute: 'home',
     ),
     IaOptionsPage()
   ];
@@ -46,14 +51,27 @@ class HomePageStatePublic extends State<HomePage> {
   ];
 
   void onTabTapped(int index) {
+    print('home $index');
     if (_currentIndex != index) {
       setState(() => _currentIndex = index);
 
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => _buildPageWithNav(index),
-        ),
-      );
+      // Si el índice es 5 o 6, navegar a la ruta 'place'
+      if (index == 5 || index == 6) {
+        // final title = index == 5 ? 'popular' : 'recently-added';
+        nextScreenGoWithExtra(context, 'places', {
+          'title': index == 5 ? 'popular' : 'recently added',
+          'color': Colors.blueGrey[600],
+          'previous_route': 'home'
+        });
+      } else {
+        nextScreenGoNamed(context, 'home');
+      }
+
+      // Navigator.of(context).push(
+      //   MaterialPageRoute(
+      //     builder: (context) => _buildPageWithNav(index),
+      //   ),
+      // );
     }
   }
 

@@ -18,6 +18,7 @@ import 'package:travel_hour/pages/comments.dart';
 import 'package:travel_hour/pages/guide.dart';
 import 'package:travel_hour/services/hash_date_service.dart';
 import 'package:travel_hour/services/location_service.dart';
+import 'package:travel_hour/services/navigation_service.dart';
 import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/utils/sign_in_dialog.dart';
 import 'package:travel_hour/widgets/bookmark_icon.dart';
@@ -305,7 +306,10 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                           // Navigator.pop(context);
                           if (widget.previousRoute != null) {
                             if (widget.previousRoute == 'popular' ||
+                                widget.previousRoute == 'recently added' ||
                                 widget.previousRoute == 'recommended') {
+                              print(widget.previousRoute);
+
                               nextScreenGoWithExtra(context, 'places', {
                                 'title': widget.previousRoute,
                                 'color': widget.previousRoute == 'recommended'

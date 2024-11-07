@@ -105,12 +105,7 @@ class _PopularPlacesState extends State<PopularPlaces> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 onPressed: () {
-                  // NavigationService().navigateToIndex(5);
-                  nextScreenGoWithExtra(context, 'places', {
-                    'title': 'popular',
-                    'color': Colors.blueGrey[600],
-                    'previous_route': 'home'
-                  });
+                  NavigationService().navigateToIndex(5);
                 },
               )
             ],

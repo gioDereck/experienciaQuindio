@@ -105,12 +105,7 @@ class _RecentPlacesState extends State<RecentPlaces> {
               IconButton(
                 icon: Icon(Icons.arrow_forward),
                 onPressed: () {
-                  // NavigationService().navigateToIndex(6);
-                  nextScreenGoWithExtra(context, 'places', {
-                    'title': 'recently added',
-                    'color': Colors.blueGrey[600],
-                    'previous_route': 'home'
-                  });
+                  NavigationService().navigateToIndex(6);
                 },
               )
             ],

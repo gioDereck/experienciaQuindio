@@ -6,7 +6,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:travel_hour/models/place.dart';
 // import 'package:travel_hour/pages/place_details.dart';
-// import 'package:travel_hour/services/navigation_service.dart';
+import 'package:travel_hour/services/navigation_service.dart';
 import 'package:travel_hour/utils/next_screen.dart';
 import 'package:travel_hour/widgets/custom_cache_image.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -180,8 +180,9 @@ class _MorePlacesPageState extends State<MorePlacesPage> {
       actions: [
         IconButton(
           icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
-          onPressed: () => nextScreenGoNamed(context, widget.previousRoute!),
-          // NavigationService().navigateToIndex(0),
+          onPressed: () =>
+              // NavigationService().navigateToIndex(0),
+              nextScreenGoNamed(context, widget.previousRoute!),
         )
       ],
       backgroundColor: widget.color,
