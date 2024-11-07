@@ -14,6 +14,7 @@ import 'package:travel_hour/pages/intro.dart';
 import 'package:travel_hour/pages/more_places.dart';
 import 'package:travel_hour/pages/notifications.dart';
 import 'package:travel_hour/pages/place_details.dart';
+import 'package:travel_hour/pages/privacy_policy_page.dart';
 import 'package:travel_hour/pages/profile.dart';
 import 'package:travel_hour/pages/qr_code.dart';
 import 'package:travel_hour/pages/qr_list.dart';
@@ -21,6 +22,8 @@ import 'package:travel_hour/pages/quindio_map.dart';
 import 'package:travel_hour/pages/sign_in.dart';
 import 'package:travel_hour/pages/splash.dart';
 import 'package:travel_hour/pages/states.dart';
+import 'package:travel_hour/widgets/language.dart';
+import 'package:travel_hour/widgets/webView.dart';
 
 final FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
 final FirebaseAnalyticsObserver firebaseObserver =
@@ -123,6 +126,32 @@ GoRouter goRouter() {
         name: 'games',
         builder: (context, state) => GamesMenuScreen(),
       ),
+      GoRoute(
+        path: '/languages',
+        name: 'languages',
+        builder: (context, state) => LanguagePopup(),
+      ),
+      GoRoute(
+          path: '/privacy_policy/:url',
+          name: 'privacy_policy',
+          builder: (context, state) {
+            dynamic url = state.pathParameters['url'];
+            return PrivacyPolicyPage(
+              url: url,
+            );
+          }),
+      GoRoute(
+          path: '/survey/:url/:label',
+          name: 'survey',
+          builder: (context, state) {
+            dynamic url = state.pathParameters['url'];
+            dynamic label = state.pathParameters['label'];
+            return WebView(
+              url: url,
+              label: label,
+            );
+          }),
+      //...
       GoRoute(
         path: '/coffee-routes',
         name: 'coffee-routes',

@@ -311,7 +311,10 @@ class _ProfilePageState extends State<ProfilePage>
                 Feather.chevron_right,
                 size: 20,
               ),
-              onTap: () => nextScreenPopup(context, LanguagePopup()),
+              onTap: () {
+                // nextScreenPopup(context, LanguagePopup())
+                nextScreenGoNamed(context, 'languages');
+              },
             ),
             Divider(
               height: 5,
@@ -355,14 +358,18 @@ class _ProfilePageState extends State<ProfilePage>
                 // AppService().openLinkWithCustomTab(context, updatedUrl);
                 final String updatedUrl =
                     appendLangParameter(Config().privacyPolicyUrl);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PrivacyPolicyPage(
-                      url: updatedUrl,
-                    ),
-                  ),
-                );
+
+                nextScreenGoNamedWithOptions(context, 'privacy_policy',
+                    pathParameters: {'url': updatedUrl}, queryParameters: {});
+
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => PrivacyPolicyPage(
+                //       url: updatedUrl,
+                //     ),
+                //   ),
+                // );
               },
             ),
             Divider(
@@ -383,12 +390,18 @@ class _ProfilePageState extends State<ProfilePage>
                 size: 20,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => WebView(
-                            url: Config().yourWebsiteUrl,
-                            label: easy.tr('rate this app'))));
+                nextScreenGoNamedWithOptions(context, 'survey',
+                    pathParameters: {
+                      'url': Config().yourWebsiteUrl,
+                      'label': easy.tr('rate this app')
+                    },
+                    queryParameters: {});
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => WebView(
+                //             url: Config().yourWebsiteUrl,
+                //             label: easy.tr('rate this app'))));
               },
             ),
             sb.guestUser == true
@@ -522,28 +535,30 @@ class GuestUserUI extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          title: Text(
-            'login',
-            style: _textStyle,
-          ).tr(),
-          leading: Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(5)),
-            child: Icon(Feather.user, size: 20, color: Colors.white),
-          ),
-          trailing: Icon(
-            Feather.chevron_right,
-            size: 20,
-          ),
-          onTap: () => nextScreenPopup(
-              context,
-              SignInPage(
-                tag: 'popup',
-              )),
-        ),
+            title: Text(
+              'login',
+              style: _textStyle,
+            ).tr(),
+            leading: Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(5)),
+              child: Icon(Feather.user, size: 20, color: Colors.white),
+            ),
+            trailing: Icon(
+              Feather.chevron_right,
+              size: 20,
+            ),
+            onTap: () => {
+                  // nextScreenPopup(
+                  //     context,
+                  //     SignInPage(
+                  //       tag: 'popup',
+                  //     )),
+                  nextScreenGoNamed(context, 'sig-in')
+                }),
         SizedBox(
           height: 20,
         ),

@@ -27,6 +27,19 @@ void nextScreenPopup(context, page) {
   );
 }
 
+void nextScreenGoNamedWithOptions(
+  BuildContext context,
+  String name, {
+  Map<String, String> pathParameters = const <String, String>{},
+  Map<String, dynamic> queryParameters = const <String, dynamic>{},
+  Object? extra,
+}) {
+  context.goNamed(name,
+      pathParameters: pathParameters,
+      queryParameters: queryParameters,
+      extra: extra);
+}
+
 // Nuevas funciones para navegación con go_router
 void nextScreenGoNamed(BuildContext context, String routeName) {
   context.goNamed(routeName);
